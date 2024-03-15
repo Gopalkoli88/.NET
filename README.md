@@ -178,7 +178,114 @@ Public Class Form1
 
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CLEAR_BTN.Click
         clear()
-    End Sub
+          End Sub
 
 End Class
+===========================================================================================================================================
+          body {
+        margin: 0px;
+        padding: 0;
+        background-color: cornflowerblue;
+    }
+
+    ul {
+        list-style-type: none;
+        text-decoration: none;
+        align-items: center;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        background-color: black;
+    }
+
+    li {
+        float: right;
+    }
+
+    li a {
+        color: white;
+        display: block;
+        margin: 12px;
+        padding: 14px;
+        text-decoration: none;
+    }
+
+
+    <script>
+    let xhr=new XMLHttpRequest();   
+    xhr.open("GET", "products.json", true);
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState==4&&xhr.status==200){
+            let val1=JSON.parse(xhr.responseText);
+            let val2=document.querySelector("#tablechaghe")
+            let out="";
+            for(let val3 of val1){
+                out+=`
+                <tr>
+                    <td>${val3.id}</td>
+                    <td> <img src='${val3.image}'> </td>
+                    <td>${val3.name}</td>
+                    <td>${val3.price}</td>
+                    <td>${val3.inventory}</td>
+                    <td>${val3.productCode}</td>
+
+                    </tr>`;
+            }val2.innerHTML=out;
+        }
+    };
+    xhr.send();
+</script>
+
+
+[
+    {
+       "id": 1,
+       "image": "",
+       "name": "Orient Vita Pro 28\"",
+       "price": "284.00",
+       "inventory": 4,
+       "productCode": "K203"
+    },
+    {
+       "id": 2,
+       "image": "",
+       "name": "Orient S-400 26\"",
+       "price": "198.00",
+       "inventory": 14,
+       "productCode": "K433"
+    },
+    {
+       "id": 3,
+       "image": "",
+       "name": "Bullet Bora 20\"",
+       "price": "350.00",
+       "inventory": 7,
+       "productCode": "K012"
+    },
+    {
+       "id": 4,
+       "image": "",
+       "name": "Feder handmade",
+       "price": "790.00",
+       "inventory": 5,
+       "productCode": "G0127"
+    },
+    {
+       "id": 5,
+       "image": "",
+       "name": "Ibanez G120",
+       "price": "430.00",
+       "inventory": 2,
+       "productCode": "G1233"
+    },
+    {
+       "id": 6,
+       "image": "",
+       "name": "Feder Blues edition",
+       "price": "650.00",
+       "inventory": 6,
+       "productCode": "G4478"
+    }
+ ]
+  
 
